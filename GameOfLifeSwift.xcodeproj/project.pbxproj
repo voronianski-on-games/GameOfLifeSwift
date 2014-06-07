@@ -14,6 +14,8 @@
 		2AAAB5C81942EA3800CB6192 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AAAB5C61942EA3800CB6192 /* Main.storyboard */; };
 		2AAAB5CA1942EA3800CB6192 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AAAB5C91942EA3800CB6192 /* Images.xcassets */; };
 		2AAAB5D61942EA3800CB6192 /* GameOfLifeSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAAB5D51942EA3800CB6192 /* GameOfLifeSwiftTests.swift */; };
+		2AAAB5E01942ECEE00CB6192 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAAB5DF1942ECEE00CB6192 /* Grid.swift */; };
+		2AAAB5E21942FA8900CB6192 /* Creature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAAB5E11942FA8900CB6192 /* Creature.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		2AAAB5CF1942EA3800CB6192 /* GameOfLifeSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GameOfLifeSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AAAB5D41942EA3800CB6192 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2AAAB5D51942EA3800CB6192 /* GameOfLifeSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOfLifeSwiftTests.swift; sourceTree = "<group>"; };
+		2AAAB5DF1942ECEE00CB6192 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
+		2AAAB5E11942FA8900CB6192 /* Creature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Creature.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +86,8 @@
 				2AAAB5BE1942EA3800CB6192 /* AppDelegate.swift */,
 				2AAAB5C01942EA3800CB6192 /* GameScene.sks */,
 				2AAAB5C21942EA3800CB6192 /* GameScene.swift */,
+				2AAAB5DF1942ECEE00CB6192 /* Grid.swift */,
+				2AAAB5E11942FA8900CB6192 /* Creature.swift */,
 				2AAAB5C41942EA3800CB6192 /* GameViewController.swift */,
 				2AAAB5C61942EA3800CB6192 /* Main.storyboard */,
 				2AAAB5C91942EA3800CB6192 /* Images.xcassets */,
@@ -218,6 +224,8 @@
 				2AAAB5C31942EA3800CB6192 /* GameScene.swift in Sources */,
 				2AAAB5C51942EA3800CB6192 /* GameViewController.swift in Sources */,
 				2AAAB5BF1942EA3800CB6192 /* AppDelegate.swift in Sources */,
+				2AAAB5E21942FA8900CB6192 /* Creature.swift in Sources */,
+				2AAAB5E01942ECEE00CB6192 /* Grid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
