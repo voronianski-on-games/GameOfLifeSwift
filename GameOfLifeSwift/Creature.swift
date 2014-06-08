@@ -14,9 +14,11 @@ class Creature: SKSpriteNode {
             self.hidden = !isAlive
         }
     }
+    var livingNeighbours:Int = 0
     
     init() {
         super.init(imageNamed:"bubble")
+        self.hidden = true
     }
     
     init(texture: SKTexture!) {

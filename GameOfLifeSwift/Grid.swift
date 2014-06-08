@@ -17,6 +17,9 @@ class Grid: SKSpriteNode {
     var _cellWidth:Double = 0
     var _cellHeight:Double = 0
     
+    var totalAlive:Int = 0
+    var generation:Int = 0
+    
     init() {
         super.init(imageNamed:"grid")
         self.userInteractionEnabled = true
@@ -39,8 +42,8 @@ class Grid: SKSpriteNode {
     }
     
     func creatureForTouchPosition(touchPosition: CGPoint) -> Creature {
-        let column = touchPosition.x / _cellWidth
-        let row = touchPosition.y / _cellHeight
+        let column:Double = Double(touchPosition.x) / _cellWidth
+        let row:Double = Double(touchPosition.y) / _cellHeight
         let creature:Creature = _gridArray[Int(row)][Int(column)]
         return creature
     }
@@ -61,7 +64,6 @@ class Grid: SKSpriteNode {
                 let creature = Creature()
                 creature.anchorPoint = CGPoint(x: 0, y: 0)
                 creature.position = CGPoint(x: Int(posX), y: Int(posY))
-                creature.isAlive = true
                 self.addChild(creature)
                 
                 _gridArray[i].insert(creature, atIndex: j)
@@ -81,5 +83,58 @@ class Grid: SKSpriteNode {
      * If it has 4 or more, it stays dead or dies.
      * If it has exactly 3 neighbors and it is dead, it comes to life!
      */
+    
+    func evolveStep() {
+        self.countNeighbours()
+        self.updateCreatures()
+        generation++
+    }
+    
+    func countNeighbours() {
+        for (var i = 0; i < _gridArray.count; i++) {
+            for (var j = 0; j < _gridArray[i].count; j++) {
+                let currentCreature:Creature = _gridArray[i][j];
+                currentCreature.livingNeighbours = 0;
+                
+                for (var x = (i-1); x <= (i+1); x++) {
+                    for (var y = (j-1); y <= (j+1); y++) {
+                        let isIndexValid = self.isIndexValid(x, y: y)
+                        if (isIndexValid && !((x == i) && (y == j))) {
+                            let neighbour:Creature = _gridArray[x][y];
+                            if (neighbour.isAlive) {
+                                currentCreature.livingNeighbours += 1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func updateCreatures() {
+        var aliveNum = 0;
+        
+        for (var i = 0; i < _gridArray.count; i++) {
+            for (var j = 0; j < _gridArray[i].count; j++) {
+                let currentCreature:Creature = _gridArray[i][j]
+                
+                if (currentCreature.livingNeighbours == 3) {
+                    currentCreature.isAlive = true
+                } else if (currentCreature.livingNeighbours <= 1 || currentCreature.livingNeighbours >= 4) {
+                    currentCreature.isAlive = false
+                }
+                
+                if (currentCreature.isAlive) {
+                    aliveNum++
+                }
+            }
+        }
+        
+        totalAlive = aliveNum
+    }
+    
+    func isIndexValid(x: Int, y: Int) -> Bool {
+        return (x < 0 || y < 0 || x >= GRID_ROWS || y >= GRID_COLUMNS) ? false : true
+    }
     
 }

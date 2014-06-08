@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2AAAB5BF1942EA3800CB6192 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAAB5BE1942EA3800CB6192 /* AppDelegate.swift */; };
-		2AAAB5C11942EA3800CB6192 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2AAAB5C01942EA3800CB6192 /* GameScene.sks */; };
 		2AAAB5C31942EA3800CB6192 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAAB5C21942EA3800CB6192 /* GameScene.swift */; };
 		2AAAB5C51942EA3800CB6192 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAAB5C41942EA3800CB6192 /* GameViewController.swift */; };
 		2AAAB5C81942EA3800CB6192 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AAAB5C61942EA3800CB6192 /* Main.storyboard */; };
@@ -29,11 +28,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2A76B3AD1944863B00028CFC /* Arrays.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = Arrays.playground; path = ../../../SwiftPlaygrounds/Arrays.playground; sourceTree = "<group>"; };
 		2AAAB5B91942EA3800CB6192 /* GameOfLifeSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameOfLifeSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AAAB5BD1942EA3800CB6192 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2AAAB5BE1942EA3800CB6192 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2AAAB5C01942EA3800CB6192 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		2AAAB5C21942EA3800CB6192 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		2AAAB5C41942EA3800CB6192 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		2AAAB5C71942EA3800CB6192 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -66,7 +63,6 @@
 		2AAAB5B01942EA3800CB6192 = {
 			isa = PBXGroup;
 			children = (
-				2A76B3AD1944863B00028CFC /* Arrays.playground */,
 				2AAAB5BB1942EA3800CB6192 /* GameOfLifeSwift */,
 				2AAAB5D21942EA3800CB6192 /* GameOfLifeSwiftTests */,
 				2AAAB5BA1942EA3800CB6192 /* Products */,
@@ -86,7 +82,6 @@
 			isa = PBXGroup;
 			children = (
 				2AAAB5BE1942EA3800CB6192 /* AppDelegate.swift */,
-				2AAAB5C01942EA3800CB6192 /* GameScene.sks */,
 				2AAAB5C21942EA3800CB6192 /* GameScene.swift */,
 				2AAAB5DF1942ECEE00CB6192 /* Grid.swift */,
 				2AAAB5E11942FA8900CB6192 /* Creature.swift */,
@@ -204,7 +199,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AAAB5CA1942EA3800CB6192 /* Images.xcassets in Resources */,
-				2AAAB5C11942EA3800CB6192 /* GameScene.sks in Resources */,
 				2AAAB5C81942EA3800CB6192 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

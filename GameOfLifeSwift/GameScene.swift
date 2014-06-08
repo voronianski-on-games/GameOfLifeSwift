@@ -9,6 +9,22 @@
 import SpriteKit
 
 class GameScene: SKScene {
+    var _grid:Grid
+    var _isPaused:Bool
+    var _timer:SKAction?
+    
+    var _populationLabel:SKLabelNode
+    var _generationLabel:SKLabelNode
+    
+    init(size: CGSize) {
+        _grid = Grid()
+        _isPaused = false
+        _populationLabel = SKLabelNode()
+        _generationLabel = SKLabelNode()
+        
+        super.init(size: size)
+    }
+    
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         
@@ -17,40 +33,83 @@ class GameScene: SKScene {
         background.position = CGPoint(x: 0, y: 0)
         self.addChild(background)
         
-        let grid:Grid = Grid()
-        grid.anchorPoint = CGPoint(x: 0, y: 0)
-        grid.position = CGPoint(x: 568 - grid.size.width-10, y: 6)
-        self.addChild(grid)
+        _grid.anchorPoint = CGPoint(x: 0, y: 0)
+        _grid.position = CGPoint(x: size.width - _grid.size.width-10, y: 6)
+        self.addChild(_grid)
         
-        /*let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-        myLabel.text = "Hello, World!";
-        myLabel.fontSize = 65;
-        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame));
+        let microscope = SKSpriteNode(imageNamed:"microscope")
+        microscope.anchorPoint = CGPoint(x: 0, y: 0)
+        microscope.position = CGPoint(x: 16, y: 10)
+        self.addChild(microscope)
         
-        self.addChild(myLabel)*/
+        let balloon = SKSpriteNode(imageNamed:"balloon")
+        balloon.anchorPoint = CGPoint(x: 0.5, y: 0)
+        balloon.position = CGPoint(x: balloon.size.width/2 + 3, y: microscope.size.height + 18)
+        self.addChild(balloon)
+        
+        let fontName = "Helvetica Neue Bold"
+        let fontSize:CGFloat = 12
+        let labelColor = UIColor(red: (35/255.0), green:(116/255.0), blue:(53/255.0), alpha:1)
+        
+        let populationLabelText:SKLabelNode = SKLabelNode(fontNamed:fontName)
+        populationLabelText.text = "Population"
+        populationLabelText.fontSize = fontSize
+        populationLabelText.fontColor = labelColor
+        populationLabelText.position = CGPoint(x: 2, y: 65)
+        balloon.addChild(populationLabelText)
+        
+        _populationLabel.fontName  = fontName
+        _populationLabel.text = "0"
+        _populationLabel.fontSize = fontSize
+        _populationLabel.fontColor = labelColor
+        _populationLabel.position = CGPoint(x: 2, y: 50)
+        balloon.addChild(_populationLabel)
+        
+        let generationLabelText:SKLabelNode = SKLabelNode(fontNamed:fontName)
+        generationLabelText.text = "Generation"
+        generationLabelText.fontSize = fontSize
+        generationLabelText.fontColor = labelColor
+        generationLabelText.position = CGPoint(x: 2, y: 33)
+        balloon.addChild(generationLabelText)
+        
+        _generationLabel.fontName  = fontName
+        _generationLabel.text = "0"
+        _generationLabel.fontSize = fontSize
+        _generationLabel.fontColor = labelColor
+        _generationLabel.position = CGPoint(x: 2, y: 18)
+        balloon.addChild(_generationLabel)
+
     }
     
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        /* Called when a touch begins */
+    func play() {
+        if (_isPaused) {
+            _isPaused = false
+            self.speed = 1
+        }
         
-        /*for touch: AnyObject in touches {
-            let location = touch.locationInNode(self)
-            
-            let sprite = SKSpriteNode(imageNamed:"Spaceship")
-            
-            sprite.xScale = 0.5
-            sprite.yScale = 0.5
-            sprite.position = location
-            
-            let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
-            
-            sprite.runAction(SKAction.repeatActionForever(action))
-            
-            self.addChild(sprite)
-        }*/
+        if (_timer) {
+            return
+        }
+        
+        let wait:SKAction = SKAction.waitForDuration(0.5)
+        let performSelector:SKAction = SKAction.runBlock(self.step)
+        let sequence:SKAction = SKAction.sequence([performSelector, wait])
+        _timer = SKAction.repeatActionForever(sequence)
+        self.runAction(_timer)
+        
     }
-   
-    override func update(currentTime: CFTimeInterval) {
-        /* Called before each frame is rendered */
+    
+    func pause() {
+        if (_isPaused) {
+            return
+        }
+        _isPaused = true
+        self.speed = 0
+    }
+    
+    func step() {
+        _grid.evolveStep()
+        _populationLabel.text = "\(_grid.totalAlive)"
+        _generationLabel.text = "\(_grid.generation)"
     }
 }
