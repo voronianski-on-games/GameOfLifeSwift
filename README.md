@@ -8,9 +8,7 @@ An implementation of [Conway's Game of Life](http://en.wikipedia.org/wiki/Conway
 
 This app is build with brand new Apple language - Swift and SpriteKit framework.
 
-It's one of the implemetations based on the **The Game of Life** - cellular automaton devised by the British mathematician John Horton Conway in 1970.
-
-You can check out and compare the same game implemented in [Objective-C + SpriteKit](https://github.com/voronianski-on-games/GameOfLifeSpriteKit) or [Objective-C + Cocos2d](https://github.com/voronianski-on-games/GameOfLifeCocos2d).
+It's one of the implemetations based on the **The Game of Life** - cellular automaton devised by the British mathematician John Horton Conway in 1970. You can check out and compare the same game implemented in [Objective-C + SpriteKit](https://github.com/voronianski-on-games/GameOfLifeSpriteKit) or [Objective-C + Cocos2d](https://github.com/voronianski-on-games/GameOfLifeCocos2d).
 
 ## References
 
