@@ -19,7 +19,7 @@ class GameScene: SKScene {
         
         let grid:Grid = Grid()
         grid.anchorPoint = CGPoint(x: 0, y: 0)
-        grid.position = CGPoint(x: size.height-grid.size.width-10, y: 6)
+        grid.position = CGPoint(x: 568 - grid.size.width-10, y: 6)
         self.addChild(grid)
         
         /*let myLabel = SKLabelNode(fontNamed:"Chalkduster")
