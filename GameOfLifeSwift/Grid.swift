@@ -20,13 +20,17 @@ class Grid: SKSpriteNode {
     var totalAlive:Int = 0
     var generation:Int = 0
     
-    convenience init() {
+    required init(coder aDecoder: NSCoder!) {
+        super.init(coder: aDecoder)
+    }
+    
+    convenience override init() {
         self.init(imageNamed:"grid")
         self.userInteractionEnabled = true
         self.setupGrid()
     }
     
-    init(texture: SKTexture!, color: UIColor!, size: CGSize) {
+    override init(texture: SKTexture!, color: UIColor!, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
     }
     

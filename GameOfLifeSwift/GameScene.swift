@@ -9,25 +9,21 @@
 import SpriteKit
 
 class GameScene: SKScene {
-    var _grid:Grid
-    var _isPaused:Bool
+    var _grid = Grid()
+    var _isPaused = false
+    var _populationLabel = SKLabelNode()
+    var _generationLabel = SKLabelNode()
     var _timer:SKAction?
     
-    var _populationLabel:SKLabelNode
-    var _generationLabel:SKLabelNode
+    required init(coder aDecoder: NSCoder!) {
+        super.init(coder: aDecoder)
+    }
     
-    init(size: CGSize) {
-        _grid = Grid()
-        _isPaused = false
-        _populationLabel = SKLabelNode()
-        _generationLabel = SKLabelNode()
-        
+    required override init(size: CGSize) {
         super.init(size: size)
     }
     
     override func didMoveToView(view: SKView) {
-        /* Setup your scene here */
-        
         let background = SKSpriteNode(imageNamed:"background")
         background.anchorPoint = CGPoint(x: 0, y: 0)
         background.position = CGPoint(x: 0, y: 0)
@@ -86,7 +82,7 @@ class GameScene: SKScene {
             self.speed = 1
         }
         
-        if (_timer) {
+        if let timing = _timer {
             return
         }
         
