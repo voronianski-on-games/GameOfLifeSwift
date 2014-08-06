@@ -20,14 +20,10 @@ class Grid: SKSpriteNode {
     var totalAlive:Int = 0
     var generation:Int = 0
     
-    init() {
-        super.init(imageNamed:"grid")
+    convenience init() {
+        self.init(imageNamed:"grid")
         self.userInteractionEnabled = true
         self.setupGrid()
-    }
-    
-    init(texture: SKTexture!) {
-        super.init(texture: texture)
     }
     
     init(texture: SKTexture!, color: UIColor!, size: CGSize) {

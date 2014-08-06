@@ -78,7 +78,6 @@ class GameScene: SKScene {
         _generationLabel.fontColor = labelColor
         _generationLabel.position = CGPoint(x: 2, y: 18)
         balloon.addChild(_generationLabel)
-
     }
     
     func play() {
