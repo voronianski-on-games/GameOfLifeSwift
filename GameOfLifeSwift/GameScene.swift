@@ -15,7 +15,7 @@ class GameScene: SKScene {
     var _generationLabel = SKLabelNode()
     var _timer:SKAction?
     
-    required init(coder aDecoder: NSCoder!) {
+    required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     

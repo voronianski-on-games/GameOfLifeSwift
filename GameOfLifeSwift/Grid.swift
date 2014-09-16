@@ -20,7 +20,7 @@ class Grid: SKSpriteNode {
     var totalAlive:Int = 0
     var generation:Int = 0
     
-    required init(coder aDecoder: NSCoder!) {
+    required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -34,7 +34,7 @@ class Grid: SKSpriteNode {
         super.init(texture: texture, color: color, size: size)
     }
     
-    override func touchesBegan(touches: NSSet!, withEvent event: UIEvent!) {
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         let touch:UITouch = touches.anyObject() as UITouch
         let touchLocation = touch.locationInNode(self)
         let creature:Creature = self.creatureForTouchPosition(touchLocation)
