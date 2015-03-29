@@ -20,7 +20,7 @@ class Grid: SKSpriteNode {
     var totalAlive:Int = 0
     var generation:Int = 0
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
